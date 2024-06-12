@@ -19,9 +19,3 @@ class Node(object):
     
     def isNodeValid(self, K) -> bool:
         return K >= self.__weight
-    
-    def __str__(self) -> str:
-        return (f"Node(listSolusi={self.__listSolusi}, cost={self.__cost})")
-
-    def __repr__(self) -> str:
-        return (f"Node(listSolusi={self.__listSolusi!r}, cost={self.__cost!r})")

@@ -26,4 +26,3 @@ class Greedy(object):
                 hargaAkhir += max * currentBarang.getHargaSatuan()
                 temp.append((max, currentBarang.getNama()))
         return (temp, hargaAkhir)
-
