@@ -50,19 +50,21 @@ class BranchNBound(object):
             return True
         return False
 
-    def process(self) -> list[(int, str)]:
+    def process(self) -> tuple[list[tuple[int, str]], int]:
         self.generateRoot()
         
         while not self.finish():
             self.generateChild()
         
         temp = []
+        hargaAkhir = 0
         finalSolution = self.__priorityQueue[0]
         listSolution = finalSolution.getListSolusi()
         
         for i in range(len(listSolution)):
             if (listSolution[i] == 1):
                 temp.append(self.__daftarBelanja.getBarangBelanja(i).getNama())
+                hargaAkhir += self.__daftarBelanja.getBarangBelanja(i).getHarga()
         
         ret = []
         while (len(temp) > 0):
@@ -70,4 +72,4 @@ class BranchNBound(object):
             ret.append((temp.count(strHead), strHead))
             temp = [item for item in temp if item != strHead]
 
-        return ret
+        return (ret, hargaAkhir)
